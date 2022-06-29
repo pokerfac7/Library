@@ -1,0 +1,132 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="create-schema" author="max" context="local" dbms="postgresql">
+        <sql>
+            CREATE SCHEMA library;
+            CREATE ROLE library_role;
+            GRANT CONNECT ON DATABASE postgres TO library_role;
+            GRANT USAGE ON SCHEMA library TO library_role;
+            GRANT ALL ON SCHEMA library TO app_su_role;
+        </sql>
+    </changeSet>
+
+    <!--    <changeSet id="create-table-author" author="Max">-->
+    <!--        <createTable tableName="author">-->
+    <!--            <column name="id" type="int" autoIncrement="true">-->
+    <!--                <constraints nullable="false" primaryKey="true"/>-->
+    <!--            </column>-->
+    <!--            <column name="first_name" type="varchar(255)"/>-->
+    <!--            <column name="last_name" type="varchar(255)">-->
+    <!--                <constraints unique="true"/>-->
+    <!--            </column>-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+
+    <!--    <changeSet id="create-table-book" author="Max">-->
+    <!--        <createTable tableName="book">-->
+    <!--            <column name="id" type="int" autoIncrement="true">-->
+    <!--                <constraints nullable="false" primaryKey="true"/>-->
+    <!--            </column>-->
+    <!--            <column name="book_name" type="varchar(3800)"/>-->
+    <!--            <column name="author" type="varchar(255)">-->
+    <!--                <constraints unique="true"/>-->
+    <!--            </column>-->
+<!--    <column name="author_id" type="varchar(40)"/> + fk&ndash;&gt;-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+
+    <!--    <changeSet id="create-table-book" author="Max">-->
+    <!--        <createTable tableName="user">-->
+    <!--            <column name="id" type="int" autoIncrement="true">-->
+    <!--                <constraints nullable="false" primaryKey="true"/>-->
+    <!--            </column>-->
+    <!--            <column name="library_card_number" type="int" autoIncrement="true"/>-->
+    <!--            <column name="author" type="varchar(255)">-->
+    <!--                <constraints unique="true"/>-->
+    <!--            </column>-->
+    <!--            <column name="first_name" type="varchar(255)">-->
+    <!--            </column>-->
+    <!--            <column name= "last_name" type="varchar(255)">-->
+    <!--            </column>-->
+    <!--            <column name= "ban" type="boolean">-->
+    <!--            </column>-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+    <!--    <changeSet id="create-table-author" author="max">-->
+    <!--        <createTable tableName="person">-->
+    <!--            <column name="id" type="int" autoIncrement="true">-->
+    <!--                <constraints nullable="false" primaryKey="true"/>-->
+    <!--            </column>-->
+    <!--            <column name="first_name" type="VARCHAR(255)"/>-->
+    <!--            <column name="last_name" type="VARCHAR(255)"/>-->
+    <!--            </column>-->
+
+
+    <!--        <changeSet id="1655909817687-1" author="aleks (generated)">-->
+    <!--        <createTable tableName="author">-->
+    <!--                <column autoIncrement="true" name="id" type="INT">-->
+    <!--                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_author"/>-->
+    <!--            </column>-->
+    <!--            <column name="first_name" type="VARCHAR(255)"/>-->
+    <!--            <column name="last_name" type="VARCHAR(255)"/>-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+    <!--    -->
+    <!--    <changeSet id="1655909817687-2" author="aleks (generated)">-->
+    <!--        <createTable tableName="book">-->
+    <!--            <column autoIncrement="true" name="id" type="INT">-->
+    <!--                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_book"/>-->
+    <!--            </column>-->
+    <!--            <column name="book_name" type="VARCHAR(255)"/>-->
+    <!--            <column name="author_id" type="INT"/>-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+    <!--    -->
+    <!--    <changeSet id="1655909817687-3" author="aleks (generated)">-->
+    <!--        <createTable tableName="book_autos">-->
+    <!--            <column name="book_id" type="INT">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="autos_id" type="INT">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+    <!--    -->
+    <!--    <changeSet id="1655909817687-4" author="aleks (generated)">-->
+    <!--        <createTable tableName="users">-->
+    <!--            <column autoIncrement="true" name="id" type="INT">-->
+    <!--                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_users"/>-->
+    <!--            </column>-->
+    <!--            <column name="library_card_number" type="INT">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="firstname" type="VARCHAR(255)"/>-->
+    <!--            <column name="lastname" type="VARCHAR(255)"/>-->
+    <!--            <column name="ban" type="INT">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+    <!--    -->
+    <!--    <changeSet id="1655909817687-5" author="aleks (generated)">-->
+    <!--        <addUniqueConstraint columnNames="autos_id" constraintName="uc_book_autos_autos" tableName="book_autos"/>-->
+    <!--    </changeSet>-->
+    <!--    <changeSet id="1655909817687-6" author="aleks (generated)">-->
+    <!--        <addForeignKeyConstraint baseColumnNames="author_id" baseTableName="book" constraintName="FK_BOOK_ON_AUTHOR"-->
+    <!--                                 referencedColumnNames="id" referencedTableName="author"/>-->
+    <!--    </changeSet>-->
+    <!--    -->
+    <!--    <changeSet id="1655909817687-7" author="aleks (generated)">-->
+    <!--        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="book_autos" constraintName="fk_booaut_on_book"-->
+    <!--                                 referencedColumnNames="id" referencedTableName="book"/>-->
+    <!--    </changeSet>-->
+    <!--    <changeSet id="1655909817687-8" author="aleks (generated)">-->
+    <!--        <addForeignKeyConstraint baseColumnNames="autos_id" baseTableName="book_autos"-->
+    <!--                                 constraintName="fk_booaut_on_user" referencedColumnNames="id"-->
+    <!--                                 referencedTableName="users"/>-->
+
+</databaseChangeLog>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="sourceModelValue" value="Default" />
+    <option name="targetDbValue" value="7dcb08a6-36f9-4d58-bf1f-61f9bacc5cb6" />
+    <option name="snapshotDbValue" value="12917d62-7ea6-4dea-8789-2f0def32062e" />
+    <option name="updateChangeLogPath" value="src/main/resources/db/changelog/2022/06/22-01-changelog.xml" />
+    <option name="updateDbConnectionName" value="7dcb08a6-36f9-4d58-bf1f-61f9bacc5cb6" />
+  </component>
+</project>
